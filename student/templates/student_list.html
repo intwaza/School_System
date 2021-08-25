@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>student_list</title>
+    <style>
+        h1{
+            color: rgb(112, 22, 112);
+            text-align: center;
+        }
+        .table{
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            margin-left: 25%;
+            margin-top: 5%;
+        }
+        th{
+            background-color: rgb(112, 22, 112);
+            color: white;
+            text-align: center;
+            padding: 12px 15px;
+        }
+        td{
+            padding: 12px 15px;
+            text-align: center;
+        }
+        tbody{
+            border-bottom: 1px solid #dddddd;
+        }
+        tbody:last-of-type{
+            border-bottom: 2px solid rgb(112, 22, 112);
+        }
+        img{
+            width: 60%;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>Student Registration List</h1>
+    <table class="table">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Date of Birth</th>
+            <th>National Id</th>
+            <th>Profile</th>
+            <th>gender</th>
+            <th>Languages</th>
+        </tr>
+        {%for student in students%}
+        <tbody>
+        <tr>
+            <td>{{student.first_name}}</td>
+            <td>{{student.last_name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.date_of_birth}}</td>
+            <td>{{student.national_id}}</td>
+            {% if student.profile %}
+            <td><img src="{{student.profile.url}}"></td>
+            {% endif %}
+            <td>{{student.gender}}</td>
+            <td>{{student.languages}}</td>
+        </tr>
+    </tbody>
+        {%endfor%}
+    </table>
+</body>
+</html>
