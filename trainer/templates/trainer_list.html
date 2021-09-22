@@ -33,7 +33,12 @@
         tbody:last-of-type{
             border-bottom: 2px solid rgb(112, 22, 112);
         }
-        
+        img{
+            width: 120%;
+        }
+        a{
+            text-decoration: none;
+        }
 
     </style>
 </head>
@@ -41,27 +46,30 @@
     <h1>Trainer Registration List</h1>
     <table class="table">
         <tr>
+            <th>Profile</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Age</th>
-            <th>gender</th>
             <th>Email Address</th>
             <th>Phone number</th>
             <th>Salary</th>
             <th>Profile</th>
-            <th></th>
+            <th>Edit</th>
         </tr>
         {%for trainer in trainers%}
         <tbody>
         <tr>
+            {% if trainer.profile %}
+            <td><img src="{{trainer.profile.url}}"></td>
+            {% endif %}
             <td>{{trainer.first_name}}</td>
             <td>{{trainer.last_name}}</td>
             <td>{{trainer.age}}</td>
-            <td>{{trainer.gender}}</td>
             <td>{{trainer.email_address}}</td>
             <td>{{trainer.phone_number}}</td>
             <td>{{trainer.salary}}</td>
-            <td>{{trainer.profile}}</td>
+            <td><a href="{% url 'trainer_profile' id=trainer.id %}">Profile</a></td>
+            <td><a href="{% url 'edit_trainer' id=trainer.id %}">Edit</a></td>
             
         </tr>
     </tbody>

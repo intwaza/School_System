@@ -1,5 +1,6 @@
 
 from django.forms import ModelForm, DateInput
+from django.forms.widgets import TextInput
 from calendary.models import Event
 
 class EventForm(ModelForm):
@@ -9,6 +10,10 @@ class EventForm(ModelForm):
     widgets = {
       'start_time': DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
       'end_time': DateInput(attrs={'type': 'datetime-local'}, format='%Y-%m-%dT%H:%M'),
+
+      'event_name':TextInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Name'}),
+
+      'event_location':TextInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Event Venue'}),     
     }
     fields = '__all__'
 

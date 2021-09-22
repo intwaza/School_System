@@ -18,3 +18,18 @@ def course_form(request):
 def course_list(request):
     courses= Course.objects.all()
     return render(request, "course_list.html", {"courses": courses})
+def course_profile(request,id):
+    course= Course.objects.get(id=id)
+    return render(request,"course_profile.html",{"course":course})
+
+def edit_course(request, id):
+    course= Course.objects.get(id=id)
+    if request.method == "POST":
+        form=CourseForm(request.POST, instance=course)
+        if form.is_valid():
+            form.save()
+        return redirect("course_profile", id=course.id)
+    else:
+        form= CourseForm(instance=course)
+        return render(request,"edit_course.html", {"form":form})
+    

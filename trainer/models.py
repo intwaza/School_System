@@ -27,3 +27,5 @@ class Trainer(models.Model):
     profile= models.ImageField(upload_to ='images/', null=True)
     contract= models.FileField(upload_to='documents/', null=True)
     date_hired= models.DateField(null=True)
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"

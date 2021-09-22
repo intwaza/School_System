@@ -1,3 +1,4 @@
+import django_heroku
 """
 Django settings for schoolsystem project.
 
@@ -38,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
     'student',
     'trainer',
     'course',
-    'calendary'
+    'calendary',
+    'rest_framework'
+    
 
 ]
 MIDDLEWARE = [
@@ -129,9 +133,11 @@ STATICFILE_DIR=[
 ]
 MEDIA_URL= '/images/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images/')
+
 # MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())
