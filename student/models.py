@@ -8,9 +8,9 @@ class Student(models.Model):
         max_length=12,null=True
     )
     age = models.PositiveSmallIntegerField(null=True)
-    date_of_birth = models.DateField(null=True)
+    date_of_birth = models.DateField(null=False)
     national_id= models.CharField(
-        max_length= 20,null=True
+        max_length= 20, null=True
     )
     profile = models.ImageField(upload_to ='images/',null=True)
     nationality_choice=(
