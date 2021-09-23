@@ -2,17 +2,17 @@ from django.db import models
 
 class Student(models.Model):
     first_name = models.CharField(
-        max_length=12,null=True
+        max_length=12,null=False
     )
     last_name = models.CharField(
-        max_length=12,null=True
+        max_length=12,null=False
     )
-    age = models.PositiveSmallIntegerField(null=True)
+    age = models.PositiveSmallIntegerField(null=False)
     date_of_birth = models.DateField(null=False)
     national_id= models.CharField(
-        max_length= 20, null=True
+        max_length= 20, null=False
     )
-    profile = models.ImageField(upload_to ='images/',null=True)
+    profile = models.ImageField(upload_to ='images/',null=False)
     nationality_choice=(
         ('1','Rwandan'),
         ('2','Kenyan'),
@@ -22,7 +22,7 @@ class Student(models.Model):
     )
    
     nationality = models.CharField(
-        max_length=15, choices=nationality_choice,null=True
+        max_length=15, choices=nationality_choice,null=False
     )
     gender_choice=(
         ('1','Female'),
@@ -30,26 +30,26 @@ class Student(models.Model):
         ('3','none')
     )
     gender = models.CharField(
-        max_length=8, choices=gender_choice,null=True
+        max_length=8, choices=gender_choice,null=False
     )
     guardian_name = models.CharField(
-        max_length=12,null=True
+        max_length=12,null=False
     )
-    email_address= models.EmailField(null=True)
+    email_address= models.EmailField(null=False)
     district = models.CharField(
-        max_length=12,null=True
+        max_length=12,null=False
     )
     phone_number = models.CharField(
         max_length=12,
-        null=True
+        null=False
     )
-    medical_report = models.FileField(upload_to='documents/',null=True)
-    date_of_enrollment = models.DateField(null=True)
+    medical_report = models.FileField(upload_to='documents/',null=False)
+    date_of_enrollment = models.DateField(null=False)
     
 
     course_name = models.CharField(
         max_length=18,
-        null=True
+        null=False
     )
     languages_choice=(
         ('1','English'),
@@ -61,10 +61,10 @@ class Student(models.Model):
     )
 
     languages = models.CharField(
-        max_length=20, choices=languages_choice,null=True
+        max_length=20, choices=languages_choice,null=False
     )
     laptop_number = models.CharField(
-        max_length=10,blank=True,null=True
+        max_length=10,blank=True,null=False
     )
     def full_name(self):
         return f"{self.first_name} {self.last_name}"

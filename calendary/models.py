@@ -3,14 +3,14 @@ from django.urls import reverse
 
 class Event(models.Model):
     event_name= models.CharField(
-        max_length=15, null=True
+        max_length=15, null=False
     )
     event_task= models.TextField(
-        max_length=80, null= True
+        max_length=80, null= False
     )
-    event_duration= models.TimeField(null=True)
-    start_time = models.DateTimeField(null=True)
-    end_time = models.DateTimeField(null=True)
+    event_duration= models.TimeField(null=False)
+    start_time = models.DateTimeField(null=False)
+    end_time = models.DateTimeField(null=False)
 
     def __str__(self):
         return self.event_name
