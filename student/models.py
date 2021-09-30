@@ -9,7 +9,7 @@ class Student(models.Model):
         max_length=12, default='SOME STRING'
     )
     age = models.PositiveSmallIntegerField(default='SOME STRING')
-    date_of_birth = models.DateField(default='SOME STRING')
+    date_of_birth = models.DateField(null=True)
     national_id= models.CharField(
         max_length= 20, default='SOME STRING'
     )
