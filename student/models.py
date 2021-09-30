@@ -13,7 +13,7 @@ class Student(models.Model):
     national_id= models.CharField(
         max_length= 20, default='SOME STRING'
     )
-    profile = models.ImageField(upload_to ='images/')
+    profile = models.ImageField(upload_to ='images/', default='SOME STRING')
     nationality_choice=(
         ('1','Rwandan'),
         ('2','Kenyan'),
