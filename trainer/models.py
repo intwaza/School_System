@@ -7,7 +7,7 @@ class Trainer(models.Model):
     last_name = models.CharField(
         max_length=12, default='SOME STRING'
     )
-    age = models.PositiveSmallIntegerField(default='SOME STRING')
+    age = models.PositiveSmallIntegerField(default=25)
     gender_choice=(
         ('1','Female'),
         ('2','male'),
@@ -23,9 +23,9 @@ class Trainer(models.Model):
     phone_number = models.CharField(
         max_length=12, default='SOME STRING'
     )
-    salary= models.PositiveBigIntegerField(default='SOME STRING')
-    profile= models.ImageField(upload_to ='images/', default='SOME STRING')
-    contract= models.FileField(upload_to='documents/', default='SOME STRING')
-    date_hired= models.DateField(default='SOME STRING')
+    salary= models.PositiveBigIntegerField(default=400)
+    profile= models.ImageField(upload_to ='images/', null=True)
+    contract= models.FileField(upload_to='documents/', null=True)
+    date_hired= models.DateField(null=True)
     def full_name(self):
         return f"{self.first_name} {self.last_name}"

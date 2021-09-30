@@ -6,11 +6,11 @@ class Event(models.Model):
         max_length=15, default=' SOME STRING'
     )
     event_task= models.TextField(
-        max_length=80, default= 'SOME STRING'
+        max_length=80, null=True
     )
-    event_duration= models.TimeField(default='SOME STRING')
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    event_duration= models.TimeField(null=True)
+    start_time = models.DateTimeField(null=True)
+    end_time = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.event_name

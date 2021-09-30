@@ -8,12 +8,12 @@ class Student(models.Model):
     last_name = models.CharField(
         max_length=12, default='SOME STRING'
     )
-    age = models.PositiveSmallIntegerField(default='SOME STRING')
-    date_of_birth = models.DateField(null=True)
+    age = models.PositiveSmallIntegerField(default= 19)
+    date_of_birth = models.DateField(null= True)
     national_id= models.CharField(
-        max_length= 20, default='SOME STRING'
+        max_length= 20, null=True
     )
-    profile = models.ImageField(upload_to ='images/', default='SOME STRING')
+    profile = models.ImageField(upload_to ='images/',null=True)
     nationality_choice=(
         ('1','Rwandan'),
         ('2','Kenyan'),
@@ -45,7 +45,7 @@ class Student(models.Model):
         
     )
     medical_report = models.FileField(upload_to='documents/', default='SOME STRING')
-    date_of_enrollment = models.DateTimeField(default=datetime.now)
+    date_of_enrollment = models.DateTimeField(null=True)
     
 
     course_name = models.CharField(
@@ -66,7 +66,7 @@ class Student(models.Model):
         max_length=20, choices=languages_choice, default='SOME STRING'
     )
     laptop_number = models.CharField(
-        max_length=10,blank=True,null=False, default='SOME STRING'
+        max_length=10,blank=True,null=False, default=1
     )
     def full_name(self):
         return f"{self.first_name} {self.last_name}"

@@ -8,11 +8,11 @@ class Course(models.Model):
         max_length=12, default='SOME STRING'
     )
     course_code= models.CharField(
-        max_length=12, default='SOME STRING'
+        max_length=12, default=0
     )
-    course_description= models.FileField(upload_to='documents/', default='SOME STRING')
-    course_duration= models.PositiveSmallIntegerField(default='SOME STRING')
+    course_description= models.FileField(upload_to='documents/', null=True)
+    course_duration= models.PositiveSmallIntegerField(default=0)
     syllabus= models.TextField(
-        max_length=700, default='SOME STRING'
+        max_length=700, null=True
     )
 
