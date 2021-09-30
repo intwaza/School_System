@@ -8,7 +8,7 @@ class Event(models.Model):
     event_task= models.TextField(
         max_length=80
     )
-    event_duration= models.TimeField()
+    event_duration= models.TimeField(default='SOME STRING')
     start_time = models.DateTimeField()
     end_time = models.DateTimeField(default= 'SOME STRING')
 
