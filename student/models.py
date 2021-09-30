@@ -44,7 +44,7 @@ class Student(models.Model):
         max_length=12, default='SOME STRING'
         
     )
-    medical_report = models.FileField(upload_to='documents/')
+    medical_report = models.FileField(upload_to='documents/', default='SOME STRING')
     date_of_enrollment = models.DateTimeField(default=datetime.now)
     
 
