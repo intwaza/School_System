@@ -3,15 +3,15 @@ from datetime import datetime
 
 class Student(models.Model):
     first_name = models.CharField(
-        max_length=12
+        max_length=12, default='SOME STRING'
     )
     last_name = models.CharField(
-        max_length=12
+        max_length=12, default='SOME STRING'
     )
-    age = models.PositiveSmallIntegerField()
-    date_of_birth = models.DateField()
+    age = models.PositiveSmallIntegerField(default='SOME STRING')
+    date_of_birth = models.DateField(default='SOME STRING')
     national_id= models.CharField(
-        max_length= 20
+        max_length= 20, default='SOME STRING'
     )
     profile = models.ImageField(upload_to ='images/')
     nationality_choice=(
@@ -34,14 +34,14 @@ class Student(models.Model):
         max_length=8, choices=gender_choice
     )
     guardian_name = models.CharField(
-        max_length=12
+        max_length=12, default='SOME STRING'
         )
     email_address= models.EmailField()
     district = models.CharField(
-        max_length=12
+        max_length=12, default='SOME STRING'
     )
     phone_number = models.CharField(
-        max_length=12,
+        max_length=12, default='SOME STRING'
         
     )
     medical_report = models.FileField(upload_to='documents/')
