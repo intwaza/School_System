@@ -19,7 +19,7 @@ class Trainer(models.Model):
     bio= models.TextField(
         max_length=700, default='SOME STRING'
     )
-    email_address= models.EmailField()
+    email_address= models.EmailField(default='SOME STRING')
     phone_number = models.CharField(
         max_length=12, default='SOME STRING'
     )
