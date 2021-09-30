@@ -36,7 +36,7 @@ class Student(models.Model):
     guardian_name = models.CharField(
         max_length=12, default='SOME STRING'
         )
-    email_address= models.EmailField()
+    email_address= models.EmailField(default='SOME STRING')
     district = models.CharField(
         max_length=12, default='SOME STRING'
     )
@@ -63,10 +63,10 @@ class Student(models.Model):
     )
 
     languages = models.CharField(
-        max_length=20, choices=languages_choice
+        max_length=20, choices=languages_choice, default='SOME STRING'
     )
     laptop_number = models.CharField(
-        max_length=10,blank=True,null=True
+        max_length=10,blank=True,null=False, default='SOME STRING'
     )
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
