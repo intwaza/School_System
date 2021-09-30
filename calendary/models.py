@@ -3,7 +3,7 @@ from django.urls import reverse
 
 class Event(models.Model):
     event_name= models.CharField(
-        max_length=15
+        max_length=15, default=' SOME STRING'
     )
     event_task= models.TextField(
         max_length=80
