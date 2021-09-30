@@ -50,7 +50,8 @@ class Student(models.Model):
 
     course_name = models.CharField(
         max_length=18,
-        null=False
+        null=False,
+        default='SOME STRING'
     )
     languages_choice=(
         ('1','English'),
