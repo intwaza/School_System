@@ -6,7 +6,7 @@ class Event(models.Model):
         max_length=15, default=' SOME STRING'
     )
     event_task= models.TextField(
-        max_length=80
+        max_length=80, default= 'SOME STRING'
     )
     event_duration= models.TimeField(default='SOME STRING')
     start_time = models.DateTimeField()
