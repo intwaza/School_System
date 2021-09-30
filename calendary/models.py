@@ -9,7 +9,7 @@ class Event(models.Model):
         max_length=80, default= 'SOME STRING'
     )
     event_duration= models.TimeField(default='SOME STRING')
-    start_time = models.DateTimeField()
+    start_time = models.DateTimeField(default= 'SOME STRING')
     end_time = models.DateTimeField(default= 'SOME STRING')
 
     def __str__(self):
