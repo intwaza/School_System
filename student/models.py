@@ -23,7 +23,7 @@ class Student(models.Model):
     )
    
     nationality = models.CharField(
-        max_length=15, choices=nationality_choice
+        max_length=15, choices=nationality_choice, default='SOME STRING'
     )
     gender_choice=(
         ('1','Female'),
@@ -31,7 +31,7 @@ class Student(models.Model):
         ('3','none')
     )
     gender = models.CharField(
-        max_length=8, choices=gender_choice
+        max_length=8, choices=gender_choice, default='SOME STRING'
     )
     guardian_name = models.CharField(
         max_length=12, default='SOME STRING'
