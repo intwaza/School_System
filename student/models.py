@@ -2,6 +2,8 @@ from django.db import models
 from datetime import datetime
 import datetime
 
+from django.urls.base import reverse
+
 class Student(models.Model):
     first_name = models.CharField(
         max_length=12, default='SOME STRING'
@@ -69,9 +71,23 @@ class Student(models.Model):
     laptop_number = models.CharField(
         max_length=10,blank=True,null=False, default=1
     )
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"
+    def test_register(self):  
+        url=reverse('register_course')
+        data={
+            "course_code":self.course.course_code,
+            "course_name":self.course.course_name,
+            "course_trainer":self.course.course_trainer,
+            }
+        request=self.client.post(url,data)
+        self.assertEqual(request.status_code,200)
     
-    def year_of_birth(self):
-        current_year= datetime.datetime.now().year
-        return current_year-self.age
+    def test_courses_list_view(self):
+        url=reverse('courses_list')
+        data={
+            "course_code":self.course.course_code,
+            "course_name":self.course.course_name,
+            "course_trainer":self.course.course_trainer,
+            }
+        request=self.client.post(url,data)
+        self.assertEqual(request.status_code,200)
+        

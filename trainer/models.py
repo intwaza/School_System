@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 
 class Trainer(models.Model):
@@ -27,5 +28,11 @@ class Trainer(models.Model):
     profile= models.ImageField(upload_to ='images/', null=True)
     contract= models.FileField(upload_to='documents/', null=True)
     date_hired= models.DateField(null=True)
+
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
+
+    def year_of_birth(self):
+        current_year=datetime.datetime.now().year
+        year= current_year
+        return year -self.age
